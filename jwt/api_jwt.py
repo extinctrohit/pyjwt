@@ -219,11 +219,12 @@ class PyJWT:
                 RemovedInPyjwt3Warning,
                 stacklevel=2,
             )
+        merged_options = {**self.options, **options}
         decoded = self.decode_complete(
             jwt,
             key,
             algorithms,
-            options,
+            options=merged_options,
             verify=verify,
             detached_payload=detached_payload,
             audience=audience,
